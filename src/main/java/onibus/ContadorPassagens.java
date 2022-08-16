@@ -3,9 +3,10 @@ package onibus;
  *
  * @author geovane
  */
+
 public class ContadorPassagens {
 
-	private int assentosDisponiveis = 42;
+	private int assentosDisponiveis = 20;
 
 	public synchronized void reservarPassagem(String pname, int numeroAssentos) {
 		if ((assentosDisponiveis >= numeroAssentos) && (numeroAssentos > 0)) {

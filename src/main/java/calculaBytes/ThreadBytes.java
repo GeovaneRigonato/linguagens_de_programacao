@@ -10,7 +10,16 @@ import java.util.concurrent.RecursiveTask;
  *
  * @author geovane
  */
-
+ /*
+   Na classe ThreadBytes se cria um variavel File do tipo file, instancia o contrutor, get ,set.
+   No metodo Long compute
+    .invokeAll permite que voce possa realizar mais de uma tarefa ao mesmo tempo, no caso ele recebe como argumento o metodo(criarSubtarefas(arqs))
+    (criarSubtarefas(arqs)) esse metodo recebe a lista de arquivos no caminho passado.
+    .stream ele transforma cada elemento a fim dele realizar alguma interação seja filtragem, mapeamento, transformação, etc.
+    .mapToLong faz uma transformação de todos os elementos de uma lista para o tipo long.
+    .sum() a cada interação realizada no .stream ele realiza uma soma. 
+    criarSubtarefas ele cria uma tarefa para cada arquivo da lista.
+*/
 
 public class ThreadBytes extends RecursiveTask<Long>{
     
@@ -27,12 +36,7 @@ public class ThreadBytes extends RecursiveTask<Long>{
     public void setFile(File file) {
         this.file = file;
     }
-
-    public ThreadBytes(File[] file) {
-        
-    }
     
-
     @Override
     protected Long compute() {
         if(file.isFile()){
